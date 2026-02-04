@@ -102,145 +102,156 @@ export default function Dashboard() {
   );
 
   return (
-  <div className="min-h-screen flex items-center justify-center bg-sky-50 px-6">
+    <div className="min-h-screen flex items-center justify-center bg-sky-50 px-6">
+      <div className="w-full max-w-5xl bg-white p-10 rounded-2xl shadow-lg border border-sky-100">
 
-    <div className="w-full max-w-5xl bg-white p-10 rounded-2xl shadow-lg border border-sky-100">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-2xl font-semibold text-gray-800">
+            Expense Manager
+          </h1>
 
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-semibold text-gray-800">
-          Expense Manager
-        </h1>
-
-        <button
-          onClick={handleLogout}
-          className="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg transition"
-        >
-          Logout
-        </button>
-      </div>
-
-      {/* Total Section */}
-      <div className="bg-sky-50 rounded-xl p-6 mb-8 flex justify-between items-center border border-sky-100">
-        <div>
-          <p className="text-gray-500 text-sm">Total Expenses</p>
-          <h2 className="text-3xl font-bold text-gray-800">
-            ₹ {totalAmount.toLocaleString()}
-          </h2>
+          <button
+            onClick={handleLogout}
+            className="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg transition"
+          >
+            Logout
+          </button>
         </div>
 
-        <div className="text-sm text-gray-400">
-          {expenses.length} records
+        {/* Total */}
+        <div className="bg-sky-50 rounded-xl p-6 mb-8 flex justify-between items-center border border-sky-100">
+          <div>
+            <p className="text-gray-500 text-sm">Total Expenses</p>
+            <h2 className="text-3xl font-bold text-gray-800">
+              ₹ {totalAmount.toLocaleString()}
+            </h2>
+          </div>
+
+          <div className="text-sm text-gray-400">
+            {expenses.length} records
+          </div>
         </div>
-      </div>
 
-      {/* Main Grid */}
-      <div className="grid md:grid-cols-2 gap-8">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
 
-        {/* Left - Form */}
-        <div className="bg-white p-6 rounded-xl border border-sky-100 shadow-sm">
-          <h3 className="text-lg font-semibold mb-4 text-gray-700">
-            {editId ? "Edit Expense" : "Add New Expense"}
-          </h3>
+          {/* Form */}
+          <div className="bg-white p-6 rounded-xl border border-sky-100 shadow-sm">
+            <h3 className="text-lg font-semibold mb-4 text-gray-700">
+              {editId ? "Edit Expense" : "Add New Expense"}
+            </h3>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
 
-            <input
-              type="text"
-              placeholder="Title"
-              className="w-full bg-sky-50 border border-sky-200 p-3 rounded-lg focus:ring-2 focus:ring-sky-300 outline-none"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
+              {/* Title */}
+              <input
+                type="text"
+                placeholder="Title"
+                className="w-full bg-sky-50 border border-sky-200 p-3 rounded-lg
+                           text-gray-900 placeholder-gray-500
+                           dark:text-gray-900 dark:placeholder-gray-500
+                           focus:ring-2 focus:ring-sky-300 outline-none"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
 
-            <input
-              type="number"
-              placeholder="Amount"
-              className="w-full bg-sky-50 border border-sky-200 p-3 rounded-lg focus:ring-2 focus:ring-sky-300 outline-none appearance-none"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              required
-            />
+              {/* Amount */}
+              <input
+                type="number"
+                placeholder="Amount"
+                className="w-full bg-sky-50 border border-sky-200 p-3 rounded-lg
+                           text-gray-900 placeholder-gray-500
+                           dark:text-gray-900 dark:placeholder-gray-500
+                           focus:ring-2 focus:ring-sky-300 outline-none appearance-none"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                required
+              />
 
-            <input
-              type="text"
-              placeholder="Category"
-              className="w-full bg-sky-50 border border-sky-200 p-3 rounded-lg focus:ring-2 focus:ring-sky-300 outline-none"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            />
+              {/* Category */}
+              <input
+                type="text"
+                placeholder="Category"
+                className="w-full bg-sky-50 border border-sky-200 p-3 rounded-lg
+                           text-gray-900 placeholder-gray-500
+                           dark:text-gray-900 dark:placeholder-gray-500
+                           focus:ring-2 focus:ring-sky-300 outline-none"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              />
 
-            <button
-              type="submit"
-              className="w-full bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-lg transition"
-            >
-              {editId ? "Update Expense" : "Add Expense"}
-            </button>
-
-            {editId && (
               <button
-                type="button"
-                onClick={() => {
-                  setEditId(null);
-                  setTitle("");
-                  setAmount("");
-                  setCategory("");
-                }}
-                className="w-full bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition"
+                type="submit"
+                className="w-full bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-lg transition"
               >
-                Cancel
+                {editId ? "Update Expense" : "Add Expense"}
               </button>
+
+              {editId && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditId(null);
+                    setTitle("");
+                    setAmount("");
+                    setCategory("");
+                  }}
+                  className="w-full bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition"
+                >
+                  Cancel
+                </button>
+              )}
+            </form>
+          </div>
+
+          {/* History */}
+          <div className="bg-white p-6 rounded-xl border border-sky-100 shadow-sm">
+            <h3 className="text-lg font-semibold mb-4 text-gray-700">
+              Expense History
+            </h3>
+
+            {expenses.length === 0 ? (
+              <p className="text-gray-400">No expenses yet.</p>
+            ) : (
+              expenses.map((expense) => (
+                <div
+                  key={expense.id}
+                  className="flex justify-between items-center border-b border-sky-100 py-3"
+                >
+                  <div>
+                    <p className="font-medium text-gray-800">
+                      {expense.title}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      ₹{expense.amount} • {expense.category}
+                    </p>
+                  </div>
+
+                  <div className="space-x-3">
+                    <button
+                      onClick={() => handleEdit(expense)}
+                      className="text-sky-500 hover:underline text-sm"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() => handleDelete(expense.id)}
+                      className="text-red-400 hover:underline text-sm"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))
             )}
-          </form>
+          </div>
+
         </div>
-
-        {/* Right - Expense List */}
-        <div className="bg-white p-6 rounded-xl border border-sky-100 shadow-sm">
-          <h3 className="text-lg font-semibold mb-4 text-gray-700">
-            Expense History
-          </h3>
-
-          {expenses.length === 0 ? (
-            <p className="text-gray-400">No expenses yet.</p>
-          ) : (
-            expenses.map((expense) => (
-              <div
-                key={expense.id}
-                className="flex justify-between items-center border-b border-sky-100 py-3"
-              >
-                <div>
-                  <p className="font-medium text-gray-800">
-                    {expense.title}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    ₹{expense.amount} • {expense.category}
-                  </p>
-                </div>
-
-                <div className="space-x-3">
-                  <button
-                    onClick={() => handleEdit(expense)}
-                    className="text-sky-500 hover:underline text-sm"
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    onClick={() => handleDelete(expense.id)}
-                    className="text-red-400 hover:underline text-sm"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-
       </div>
     </div>
-  </div>
-);
+  );
 }
