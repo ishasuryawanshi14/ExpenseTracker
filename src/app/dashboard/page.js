@@ -105,7 +105,7 @@ export default function Dashboard() {
     <div className="min-h-screen flex items-center justify-center bg-sky-50 px-6">
       <div className="w-full max-w-5xl bg-white p-10 rounded-2xl shadow-lg border border-sky-100">
 
-        {/* Header */}
+        
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-semibold text-gray-800">
             Expense Manager
@@ -119,7 +119,7 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Total */}
+       
         <div className="bg-sky-50 rounded-xl p-6 mb-8 flex justify-between items-center border border-sky-100">
           <div>
             <p className="text-gray-500 text-sm">Total Expenses</p>
@@ -133,10 +133,10 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Grid */}
+      
         <div className="grid md:grid-cols-2 gap-8">
 
-          {/* Form */}
+        
           <div className="bg-white p-6 rounded-xl border border-sky-100 shadow-sm">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">
               {editId ? "Edit Expense" : "Add New Expense"}
@@ -144,7 +144,7 @@ export default function Dashboard() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
 
-              {/* Title */}
+             
               <input
                 type="text"
                 placeholder="Title"
@@ -157,7 +157,7 @@ export default function Dashboard() {
                 required
               />
 
-              {/* Amount */}
+             
               <input
                 type="number"
                 placeholder="Amount"
@@ -170,7 +170,6 @@ export default function Dashboard() {
                 required
               />
 
-              {/* Category */}
               <input
                 type="text"
                 placeholder="Category"
@@ -199,7 +198,7 @@ export default function Dashboard() {
                     setAmount("");
                     setCategory("");
                   }}
-                  className="w-full bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition"
+                  className="w-full bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition  text-black"
                 >
                   Cancel
                 </button>
@@ -207,7 +206,7 @@ export default function Dashboard() {
             </form>
           </div>
 
-          {/* History */}
+          
           <div className="bg-white p-6 rounded-xl border border-sky-100 shadow-sm">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">
               Expense History
