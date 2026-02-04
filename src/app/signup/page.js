@@ -53,7 +53,7 @@ export default function Signup() {
         <form onSubmit={handleSignup} className="space-y-5">
 
           <div>
-            <label className="text-sm text-gray-600">
+            <label className="text-sm text-black">
               Email
             </label>
             <input
@@ -67,7 +67,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label className="text-sm text-gray-600">
+            <label className="text-sm text-black">
               Password
             </label>
             <input
@@ -81,7 +81,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label className="text-sm text-gray-600">
+            <label className="text-sm text-black">
               Confirm Password
             </label>
             <input

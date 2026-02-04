@@ -47,7 +47,7 @@ export default function Login() {
 
         {/* Email */}
         <div>
-          <label className="text-sm text-gray-600">
+          <label className="text-sm text-black">
             Email
           </label>
           <input
@@ -62,7 +62,7 @@ export default function Login() {
 
         {/* Password */}
         <div>
-          <label className="text-sm text-gray-600">
+          <label className="text-sm text-black">
             Password
           </label>
           <input
